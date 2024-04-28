@@ -48,11 +48,30 @@ const LineChartHistorical = ({aiForecast, finalForecast, consumption}) => {
         ],
       },
       options: {
+        plugins: {
+          title: {
+            display: true,
+            text: "HISTORICAL",
+          },
+        },
         scales: {
           y: {
+            suggestedMin: 0, // Set the minimum value for the y-axis
+            suggestedMax: 1000,
             title: {
               display: true,
               text: "CONSUMPTION(FT, Thousand)",
+            },
+          },
+          x: {
+            border: {
+              display: true,
+            },
+            grid: {
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: true,
+              color: "#383a3a",
             },
           },
         },
@@ -66,7 +85,7 @@ const LineChartHistorical = ({aiForecast, finalForecast, consumption}) => {
     };
   }, [aiForecast, finalForecast, consumption]);
 
-  return <canvas className="w-1/2" ref={chartRef} />;
+  return <canvas width={`640px`} ref={chartRef} />;
 };
 
 export default LineChartHistorical;

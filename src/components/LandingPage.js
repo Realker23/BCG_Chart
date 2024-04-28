@@ -24,7 +24,7 @@ const LandingPage = () => {
       <div className="absolute top-11 w-full">
         <div className=" z-10">
           <div>
-            <p className="text-3xl font-bold text-white opacity-50 flex m-8">
+            <p className="text-3xl font-bold text-white opacity-70 flex m-8">
               Hello User,
             </p>
           </div>

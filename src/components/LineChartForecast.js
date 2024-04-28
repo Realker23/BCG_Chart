@@ -34,6 +34,7 @@ const LineChartForecast = ({
             fill: false,
             borderColor: "green",
             borderWidth: 2,
+            borderDash: [5, 5],
           },
           {
             label: "Final Forecast",
@@ -41,6 +42,7 @@ const LineChartForecast = ({
             fill: false,
             borderColor: "yellow",
             borderWidth: 2,
+            borderDash: [5, 5],
           },
           {
             label: "Previous Quarter Final Forecast",
@@ -48,13 +50,33 @@ const LineChartForecast = ({
             fill: false,
             borderColor: "orange",
             borderWidth: 2,
+            borderDash: [5, 5],
           },
         ],
       },
       options: {
+        plugins: {
+          title: {
+            display: true,
+            text: "FORECAST",
+          },
+        },
         scales: {
           y: {
+            suggestedMin: 0, // Set the minimum value for the y-axis
+            suggestedMax: 1000,
             display: false,
+          },
+          x: {
+            border: {
+              display: true,
+            },
+            grid: {
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: true,
+              color: "#383a3a",
+            },
           },
         },
       },
@@ -67,7 +89,7 @@ const LineChartForecast = ({
     };
   }, [aiForecast, finalForecast, previousQuaterFinalForecast]);
 
-  return <canvas className="w-1/2" ref={chartRef} />;
+  return <canvas width={`640px`} ref={chartRef} />;
 };
 
 export default LineChartForecast;
